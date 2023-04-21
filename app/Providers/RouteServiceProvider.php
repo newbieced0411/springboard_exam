@@ -36,5 +36,11 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+
+        parent::boot();
+
+        Route::fallback(function () {
+            abort(404, 'The requested URL was not found on this server.');
+        });
     }
 }
