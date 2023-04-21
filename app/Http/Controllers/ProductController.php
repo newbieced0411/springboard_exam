@@ -7,16 +7,12 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    # Show all products
     public function index()
     {
-        // if(auth()->user()->admin !== 1){
-        //     return response()->json([
-        //         // 'branches' => 
-        //     ]);
-        // }
         return response()->json([
-            'branches' => Branch::all()
-        ]);
+            'products' => Product::all()
+        ], 200);
     }
 
     public function new(Request $request)
@@ -43,6 +39,6 @@ class ProductController extends Controller
 
         return response()->json([
             'message' => 'Successfully created.'
-        ]);
+        ], 201);
     }
 }

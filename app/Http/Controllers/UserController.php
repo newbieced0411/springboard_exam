@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Exception;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -39,7 +40,8 @@ class UserController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'admin' => 0
         ]);
 
         return response()->json([
@@ -78,5 +80,15 @@ class UserController extends Controller
         $user->save();
 
         return response()->json(['message' => 'User updated successfully'], 201);
+    }
+
+    public function logout(Request $request){
+        // auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return response()->json([
+            'redirect' => '/login',
+        ], 201);
     }
 }

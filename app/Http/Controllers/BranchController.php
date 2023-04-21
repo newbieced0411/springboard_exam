@@ -7,16 +7,19 @@ use Illuminate\Http\Request;
 
 class BranchController extends Controller
 {
+    # Show all branches
     public function index()
     {
-        // if(auth()->user()->admin !== 1){
-        //     return response()->json([
-        //         // 'branches' => 
-        //     ]);
-        // }
         return response()->json([
             'branches' => Branch::all()
-        ]);
+        ], 200);
+    }
+
+    public function show(Branch $branch)
+    {
+        return response()->json([
+            'products' => $branch->load('products')
+        ], 200);
     }
 
     public function new(Request $request)
@@ -32,7 +35,7 @@ class BranchController extends Controller
 
         return response()->json([
             'message' => 'Successfully created.'
-        ]);
+        ], 201);
     }
 
     public function edit(Request $request)

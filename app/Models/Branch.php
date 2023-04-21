@@ -18,6 +18,6 @@ class Branch extends Model
 
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'branch_product');
+        return $this->belongsToMany(Product::class, 'branch_product')->withTimestamps();
     }
 }
