@@ -24,6 +24,6 @@ class TagProductController extends Controller
 
         return response()->json([
             'message' => 'Successfully tagged all products.'
-        ], 200);
+        ], 201);
     }
 }

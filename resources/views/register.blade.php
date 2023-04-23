@@ -9,6 +9,7 @@
         @csrf
         <div class="text-3xl font-semibold text-center">Register</div>
         <div id="result" class="text-center text-green-500"></div>
+        <div id="errors" class="text-center text-red-500"></div>
         <div class="mt-4">
             <div>
                 <input type="text" placeholder="Name" name="name" id="name" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">

@@ -20,7 +20,7 @@ class ProductController extends Controller
         if(!auth()->user()->admin){
             return response()->json([
                 'message' => 'Only admin can add new branch.'
-            ]);
+            ], 401);
         }
 
         $request->validate([ 

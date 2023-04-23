@@ -18,7 +18,7 @@ class BranchController extends Controller
     public function show(Branch $branch)
     {
         return response()->json([
-            'products' => $branch->load('products')
+            'branch' => $branch->load('products')
         ], 200);
     }
 
@@ -36,15 +36,5 @@ class BranchController extends Controller
         return response()->json([
             'message' => 'Successfully created.'
         ], 201);
-    }
-
-    public function edit(Request $request)
-    {
-        
-    }
-
-    public function remove(Branch $branch)
-    {
-        # code...
     }
 }

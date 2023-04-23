@@ -33,4 +33,8 @@ Route::middleware(['auth.redirect'])->group(function () {
     Route::get('/', function () {
         return view('main.home');
     })->name('home');
+
+    Route::get('/tag', function () {
+        return view('main.tag');
+    })->name('tag');
 });
