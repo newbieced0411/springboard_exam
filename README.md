@@ -1,3 +1,10 @@
+# Features of the Project
+1. Login and Registration
+2. Module that can create different branches.
+3. Module that can create different products.
+4. Module that can tag multiple products to different branches,
+5. Users can view multiple branches along with products tagged to it at the same time.
+
 # How to run this project
 
 ## Create a database
